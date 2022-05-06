@@ -33,7 +33,7 @@ By modifying the source of the baseline human data, the user can choose between 
 
 Data is created following directory structure: 
 
-![alt text](https://raw.githubusercontent.com/dle4/Synthetic-Post-Dive-Ultrasound-Audio-Generator/main/Main/Images/ExampleDirectoryStructure.png?token=GHSAT0AAAAAABUJTFY6FBVN4TCGNMPYKOYWYTVOBLA)
+![alt text](https://raw.githubusercontent.com/dle4/Synthetic-Post-Dive-Ultrasound-Audio-Generator/main/Main/Images/ExampleDirectoryStructure.png?token=GHSAT0AAAAAABUJTFY6FBVN4TCGNMPYKOYWYTVOBLA =250x250)
 
 Example data is provided covering 6 cases ranging  subclavian/precordial, full/partial cardiac cycle, and spencer/KM scales. Partial cardiac cycle script is not used for subclavian data as the real-world data is often clean enough to easily differentiate background from VGE. 
 
