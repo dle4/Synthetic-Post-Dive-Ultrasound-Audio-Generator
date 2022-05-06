@@ -1,3 +1,0 @@
-synthethiccombinationdoppler_03_09_2022.m is the version that restricts bubble placement to empty regions between cardiac cycles
-
-syntheticCombinationDoppler_subclavian is 
