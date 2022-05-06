@@ -12,8 +12,7 @@ MATLAB version 2020b or newer (needs audio data augmentation toolbox)
 
 Overview
 ------------
-This repository contains the code described in Le et al. 2022, An open-source framework for synthetic post-dive Doppler ultrasound audio generation. 
-Doppler ultrasound (DU) is recorded after divers surface to measure the amount of bubble (venous gas emboli or VGE) generation from decompression. These recordings are acquired of the subclavian vein or precordium (precordial). Precordial DU 
+This repository contains the code described in Le et al. 2022, An open-source framework for synthetic post-dive Doppler ultrasound audio generation. A subset of this data was used to pretrain a ReSeNet for Spencer grade classifications leading to improved real-world test data evaluation. Doppler ultrasound (DU) is recorded after divers surface to measure the amount of bubble (venous gas emboli or VGE) generation from decompression. These recordings are acquired of the subclavian vein or precordium (precordial). Baseline data used in this work can be obtained at ____ 
 
 Large amounts of real-world data is difficult to acquire and do not provide ground truth data for what is VGE or cardiac signal. The algorithm presented here generates synthetic post-dive DU data using real-world clean baselines for precordial/subclavian vein recordings injected with isolated VGE audio signals recorded experimentally. A rule-based system is implemented for the injection of VGE into these data, following the Kisman-Masurel grading scale (Table 1,2). The KM scale can be converted into the Spencer scale (Table 3) which is also used by researchers using table 4. 
 
@@ -41,10 +40,12 @@ Example data is provided covering 6 cases ranging  subclavian/precordial, full/p
 License and Citation
 ------------
 
+References
+------------
+Arian Azarang et al. 2022, Deep learning for doppler classificationl...
 
 
-
-Definitions:
+Tables:
 ------------
 Kisman-Masurel Original (Table 1): 
 | KM score | Bubbles per cardiac cycle | Percentage of cardiac cycles at rest with detectable bubbles at rest | Relative amplitude |
