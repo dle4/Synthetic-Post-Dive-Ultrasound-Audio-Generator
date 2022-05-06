@@ -19,14 +19,25 @@ Large amounts of real-world data is difficult to acquire and do not provide grou
 
 The code allows a user to generate any number of audio files using either Spencer or KM grading scales. Furthermore, the user can designate certain parameters such as length of audio file, sampling frequency. A method to place VGE only in quiet regions of a cardiac cycle is provided to create data with clearer separation between VGE and human signals. Finally, all code is modifiable such as the definition of KM scale. 
 
-
-
+Example image of generated KM 222 data. 
+![Example KM 222 image](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
 
 
 Usage
 ------------
 
-Two main functions are provided: 1) 
+Two main functions are provided: 1) SyntheticCombinationDoppler_FullCardiac_Master_04_18.m and 2) SyntheticCombinationDoppler_PartialCardiac_Master_04_20.m. 
+The fullcardiac script generates synthetic data where VGE are placed anywhere within detected cardiac cycles. PartialCardiac script only places VGE within the region between cardiac cycles using the FWHM of the peaks to define the placement of VGE. These scripts are directly used to generate data. To use, open the script in MATLAB and modify the section "User-defined parameters" with number of files to be generated (numfiles), desired audio file length in seconds (desired_length_sec), output data sampling frequency (Fs2), and code system (Spencer = 1, Kisman-Masurel = 2). Additionally, properly define the folder location of the baseline DU human and VGE audio files. Finally, specify folder and filename for generated data to be placed into and named. 
+
+By modifying the source of the baseline human data, the user can choose between precordial or subclavian output data. 
+
+Data is created following directory structure: 
+
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
+Example data is provided covering 6 cases ranging  subclavian/precordial, full/partial cardiac cycle, and spencer/KM scales. Partial cardiac cycle script is not used for subclavian data as the real-world data is often clean enough to easily differentiate background from VGE. 
+
+
 
 License and Citation
 ------------
