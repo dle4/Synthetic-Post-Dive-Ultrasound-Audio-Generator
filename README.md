@@ -35,16 +35,16 @@ License and Citation
 
 Definitions:
 ------------
-Kisman-Masurel Original: 
+Kisman-Masurel Original (Table 1): 
 | KM score | Bubbles per cardiac cycle | Percentage of cardiac cycles at rest with detectable bubbles at rest | Relative amplitude |
 | --- | --- | --- | --- | 
-| 0 | 0 | 0 | 0 |
-| 1 | 1-2 | 1-10% | 0.100-0.250 |
-| 2 | 3-8 | 10-50% | 0.250-0.450 |
-| 3 | 9-P_y | 50-99% | 0.450-0.775 |
-| 4 | P_y - (2* P_y) | 100% | 0.775-0.999 |
+| 0 | 0 | 0 | No sound |
+| 1 | 1-2 | 1-10% | Barely perceptible |
+| 2 | 3-8 | 10-50% | Moderate amplitude|
+| 3 | 9-P_y | 50-99% | Loud bubbles |
+| 4 | P_y - (2* P_y) | 100% | Maximal|
 
-Kisman-Masurel Adapted: 
+Kisman-Masurel Adapted (Table 2): 
 | KM score | Bubbles per cardiac cycle | Percentage of cardiac cycles at rest with detectable bubbles at rest | Relative amplitude |
 | --- | --- | --- | --- | 
 | 0 | 0 | 0 | 0 |
@@ -55,7 +55,7 @@ Kisman-Masurel Adapted:
 
 P_y = {Cardiac Period (s)}/ {Average Bubble Length (s)}
 
-Spencer Table:
+Spencer Table (Table 3):
 | Grade | Description |
 | --- | --- |
 | Grade 0 | Complete lack of bubble signals|
@@ -64,7 +64,7 @@ Spencer Table:
 | Grade 3 | All of the cardiac periods contain showers or single bubble signals, but not dominating or overriding the cardiac motion signals|
 | Grade 4 | Maximum detectable bubble signal sounding continuously throughout systole and diastole of every cardiac period, and overriding the amplitude of the normal cardiac signals|
 
-Kisman-Masurel to Spencer conversion Table: 
+Kisman-Masurel to Spencer conversion Table (table 4): 
 | Spencer | Kisman-Masurel Grades |
 | --- | --- |
 | 0 | 000 |
