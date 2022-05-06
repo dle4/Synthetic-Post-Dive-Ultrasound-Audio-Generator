@@ -25,7 +25,8 @@ The code allows a user to generate any number of audio files using either Spence
 
 Usage
 ------------
-Decide on a
+
+Two main functions are provided: 1) 
 
 License and Citation
 ------------
