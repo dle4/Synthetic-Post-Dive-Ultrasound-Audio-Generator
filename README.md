@@ -20,7 +20,7 @@ Large amounts of real-world data is difficult to acquire and do not provide grou
 The code allows a user to generate any number of audio files using either Spencer or KM grading scales. Furthermore, the user can designate certain parameters such as length of audio file, sampling frequency. A method to place VGE only in quiet regions of a cardiac cycle is provided to create data with clearer separation between VGE and human signals. Finally, all code is modifiable such as the definition of KM scale. 
 
 Example image of generated KM 222 data. 
-![Example KM 222 image](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![Example KM 222 image](https://github.com/dle4/Synthetic-Post-Dive-Ultrasound-Audio-Generator/blob/main/Main/Images/ExampleData.png)
 
 
 Usage
@@ -33,7 +33,7 @@ By modifying the source of the baseline human data, the user can choose between 
 
 Data is created following directory structure: 
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![alt text](https://raw.githubusercontent.com/dle4/Synthetic-Post-Dive-Ultrasound-Audio-Generator/main/Main/Images/ExampleDirectoryStructure.png?token=GHSAT0AAAAAABUJTFY6FBVN4TCGNMPYKOYWYTVOBLA)
 
 Example data is provided covering 6 cases ranging  subclavian/precordial, full/partial cardiac cycle, and spencer/KM scales. Partial cardiac cycle script is not used for subclavian data as the real-world data is often clean enough to easily differentiate background from VGE. 
 
