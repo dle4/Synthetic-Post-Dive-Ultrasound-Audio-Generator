@@ -31,7 +31,7 @@ The fullcardiac script generates synthetic data where VGE are placed anywhere wi
 By modifying the source of the baseline human data, the user can choose between precordial or subclavian output data. 
 
 Data is created following directory structure: 
-<img src="https://github.com/dle4/Synthetic-Post-Dive-Ultrasound-Audio-Generator/blob/main/Main/Images/ExampleDirectoryStructure.png" width="256">
+<img src="https://github.com/dle4/Synthetic-Post-Dive-Ultrasound-Audio-Generator/blob/main/Main/Images/ExampleDirectoryStructure.png" width="512">
 
 Example data is provided covering 6 cases ranging  subclavian/precordial, full/partial cardiac cycle, and spencer/KM scales. Partial cardiac cycle script is not used for subclavian data as the real-world data is often clean enough to easily differentiate background from VGE. 
 
