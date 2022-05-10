@@ -26,9 +26,13 @@ Usage
 ------------
 
 Two main functions are provided: 1) SyntheticCombinationDoppler_FullCardiac_Master_04_18.m and 2) SyntheticCombinationDoppler_PartialCardiac_Master_04_20.m. 
-The fullcardiac script generates synthetic data where VGE are placed anywhere within detected cardiac cycles. PartialCardiac script only places VGE within the region between cardiac cycles using the FWHM of the peaks to define the placement of VGE. These scripts are directly used to generate data. To use, open the script in MATLAB and modify the section "User-defined parameters" with number of files to be generated (numfiles), desired audio file length in seconds (desired_length_sec), output data sampling frequency (Fs2), and code system (Spencer = 1, Kisman-Masurel = 2). Additionally, properly define the folder location of the baseline DU human and VGE audio files. Finally, specify folder and filename for generated data to be placed into and named. 
+The fullcardiac script generates synthetic data where VGE are placed anywhere within detected cardiac cycles. PartialCardiac script only places VGE within the region between cardiac cycles using the FWHM of the peaks to define the placement of VGE. These scripts are directly used to generate data. 
 
-By modifying the source of the baseline human data, the user can choose between precordial or subclavian output data. 
+To use, open the script in MATLAB and modify the section "User-defined parameters" with number of files to be generated (numfiles), desired audio file length in seconds (desired_length_sec), output data sampling frequency (Fs2), and code system (Spencer = 1, Kisman-Masurel = 2). 
+
+Additionally, properly define the folder location of the baseline DU human and VGE audio files. Finally, specify folder and filename for generated data to be placed into and named. 
+
+By modifying the source of the baseline human data, the user can choose between precordial or subclavian output data. This exists in folders "PrecordialHumanBaseline" and "SubclavianHumanBaseline". 
 
 Data is created following directory structure: 
 <img src="https://github.com/dle4/Synthetic-Post-Dive-Ultrasound-Audio-Generator/blob/main/Main/Images/ExampleDirectoryStructure.png" width="512">
