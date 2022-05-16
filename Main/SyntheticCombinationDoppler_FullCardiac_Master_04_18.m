@@ -28,12 +28,12 @@ desired_length_sec = 10; %seconds per audio file
 Fs2 = 8000; %resampled frequency for output data (44100 and 8000 are good choices)
 codesystem = 2; % 1 for Spencer and 2 for Kisman-Masurel
 
-%% Specify folders where baseline data is located
+% Specify folders where baseline data is located
 % baseline_human_dir = "D:\Projects\Doppler Project\Data\Simulated data\Rawdata\O'Dive dataset - only pre-dive"; 
 baseline_human_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\2021dopplercardiac072921';
 bubble_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\SimulatedBubbles_Sequoia';
 
-%% where to save augmented data
+% where to save augmented data
 savefolder_all = 'E:\Projects\Doppler Project\Data\Simulated data\Synthetic Doppler Data\TestBubbles_Spencer_10s_2022_04_18\';
 savefolder_cardiac = [savefolder_all 'DopplerSynthCardiac\'];
 savefolder_bubbles = [savefolder_all 'DopplerSynthBubbles\'];
