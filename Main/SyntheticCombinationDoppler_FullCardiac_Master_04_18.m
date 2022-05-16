@@ -23,6 +23,8 @@
 clear; close all; clc; 
 
 %% User-defined parameters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 numfiles = 1; %number of synthetic Doppler files per class to be made
 desired_length_sec = 10; %seconds per audio file
 Fs2 = 8000; %resampled frequency for output data (44100 and 8000 are good choices)
@@ -39,6 +41,9 @@ savefolder_cardiac = [savefolder_all 'DopplerSynthCardiac\'];
 savefolder_bubbles = [savefolder_all 'DopplerSynthBubbles\'];
 savefolder_combined = [savefolder_all 'DopplerSynthCombined\'];
 savefilebasename = 'syntheticDopplerAudioCombined_'; %what the file will be named
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 try
     mkdir(savefolder_cardiac);
