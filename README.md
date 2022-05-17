@@ -35,6 +35,7 @@ Additionally, properly define the folder location of the baseline DU human and V
 By modifying the source of the baseline human data, the user can choose between precordial or subclavian output data. This exists in folders "PrecordialHumanBaseline" and "SubclavianHumanBaseline". 
 
 Data is created following directory structure: 
+
 <img src="https://github.com/dle4/Synthetic-Post-Dive-Ultrasound-Audio-Generator/blob/main/Main/Images/ExampleDirectoryStructure.png" width="512">
 
 Example data is provided covering 6 cases ranging  subclavian/precordial, full/partial cardiac cycle, and spencer/KM scales. Partial cardiac cycle script is not used for subclavian data as the real-world data is often clean enough to easily differentiate background from VGE. 
