@@ -7,7 +7,7 @@
 % on the Kisman-Masurel scale and subsequently sorted into Spencer grades 
 % according to a conversion chart. 
 
-% Unlike the master script, this takes into account the loudest sounds in
+% Unlike the master lscript, this takes into account the loudest sounds in
 % the cardiac cycle and avoids placing bubbles into those regions,
 % increasing separability between cardiac noise and VGE, but these rules 
 % require highest quality precordial doppler data with clearly defined
@@ -118,7 +118,7 @@ for nmx = 3:size(direc_bbl,1)  %this is the "set"
                 individual_bbl2 = resample(individual_bbl, Fs2,Fs);
                 bubble_seg{counter} = individual_bbl;
                 bubble_seg_resample{counter} = individual_bbl2;
-                ind1(k)= length(individual_bbl2);
+                ind1(counter)= length(individual_bbl2);
                 counter = counter+1;
             end
         end
