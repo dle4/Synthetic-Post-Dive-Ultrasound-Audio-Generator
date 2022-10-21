@@ -18,8 +18,6 @@ Large amounts of real-world data is difficult to acquire and do not provide grou
 
 The code allows a user to generate any number of audio files using either Spencer or KM grading scales. Furthermore, the user can designate certain parameters such as length of audio file, sampling frequency. A method to place VGE only in quiet regions of a cardiac cycle is provided to create data with clearer separation between VGE and human signals. Finally, all code is modifiable such as the definition of KM scale. 
 
-Example image of generated KM 222 data. 
-![Example KM 222 image](https://github.com/dle4/Synthetic-Post-Dive-Ultrasound-Audio-Generator/blob/main/Main/Images/ExampleData.png)
 
 
 Usage
@@ -34,22 +32,23 @@ Additionally, properly define the folder location of the baseline DU human and V
 
 By modifying the source of the baseline human data, the user can choose between precordial or subclavian output data. This exists in folders "PrecordialHumanBaseline" and "SubclavianHumanBaseline". 
 
-Data is created following directory structure: 
+Data is generated such that the components to generate a synthetic post-dive DU file are in separate folders from the final audio. Files are given a unique filename that is used across component folders to allow for registration. 
 
-<img src="https://github.com/dle4/Synthetic-Post-Dive-Ultrasound-Audio-Generator/blob/main/Main/Images/ExampleDirectoryStructure.png" width="512">
-
-Example data is provided covering 6 cases ranging  subclavian/precordial, full/partial cardiac cycle, and spencer/KM scales. Partial cardiac cycle script is not used for subclavian data as the real-world data is often clean enough to easily differentiate background from VGE. 
+Example data is provided covering 6 cases ranging subclavian/precordial, full/partial cardiac cycle, and spencer/KM scales. Partial cardiac cycle script is not used for subclavian data as the real-world data is often clean enough to easily differentiate background from VGE. 
 
 Supplemental functions are provided to create data according to all 6 cases provided (RunAll.m). User can execute that file to generate more than one type of data without waiting for each datatype to finish. 
 
 License and Citation
 ------------
+The codes are licensed under GPL-2.0 license.
 
-David Le et al. 2022, An open-source framework for synthetic post-dive Doppler ultrasound audio generation, PLoS ONE. 
+For any utilization of the code content of this repository, the following paper needs to be cited by the user:
+
+> David Le et al. 2022, An open-source framework for synthetic post-dive Doppler ultrasound audio generation, PLoS ONE. 
 
 References
 ------------
-Arian Azarang et al. 2022, Deep learning for doppler classificationl...
+Arian Azarang et al. 2022, Deep learning for doppler classification...
 
 
 Tables:
