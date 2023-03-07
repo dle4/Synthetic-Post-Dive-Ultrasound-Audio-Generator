@@ -32,7 +32,7 @@ clear; close all; clc;
 %% User-defined parameters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-numfiles = 10; %number of synthetic Doppler files per class to be made
+numfiles = 1000; %number of synthetic Doppler files per class to be made
 desired_length_sec = 10; %seconds per audio file
 Fs2 = 8000; %resampled frequency for output data (44100 and 8000 are good choices)
 codesystem = 1; % 1 for Spencer and 2 for Kisman-Masurel
@@ -175,7 +175,6 @@ parfor f = 1:length(sf)
     %%
     while (length(dir(fpname3))-2) < numfiles
         try
-%         if 2==2
             % Randomly sample an audio signal from cardiac data and augment without noise
             randaudio = audioAll{randi(length(audioAll))};
             desired_length_samp = desired_length_sec*Fs2;
