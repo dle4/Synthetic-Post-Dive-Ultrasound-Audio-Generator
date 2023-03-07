@@ -32,7 +32,7 @@ clear; close all; clc;
 %% User-defined parameters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-numfiles = 1000; %number of synthetic Doppler files per class to be made
+numfiles = 10; %number of synthetic Doppler files per class to be made
 desired_length_sec = 10; %seconds per audio file
 Fs2 = 8000; %resampled frequency for output data (44100 and 8000 are good choices)
 codesystem = 1; % 1 for Spencer and 2 for Kisman-Masurel
@@ -43,7 +43,7 @@ baseline_human_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\20
 bubble_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\SimulatedBubbles_Sequoia';
 
 % where to save augmented data
-savefolder_all = 'E:\Projects\Doppler Project\Data\Simulated data\Synthetic Doppler Data\TestBubbles_KM_noOverlap_10s_2022_04_21\';
+savefolder_all = 'E:\Projects\Doppler Project\Data\Simulated data\TestBubbles_Spencer_noOverlap_10s_2023_03_07\';
 savefolder_cardiac = [savefolder_all 'DopplerSynthCardiac\'];
 savefolder_bubbles = [savefolder_all 'DopplerSynthBubbles\'];
 savefolder_combined = [savefolder_all 'DopplerSynthCombined\'];
@@ -53,6 +53,7 @@ savefilebasename = 'syntheticDopplerAudioCombined_';
 
 
 try
+    mkdir(savefolder_all);
     mkdir(savefolder_cardiac);
     mkdir(savefolder_bubbles);
     mkdir(savefolder_combined);
@@ -174,6 +175,7 @@ parfor f = 1:length(sf)
     %%
     while (length(dir(fpname3))-2) < numfiles
         try
+%         if 2==2
             % Randomly sample an audio signal from cardiac data and augment without noise
             randaudio = audioAll{randi(length(audioAll))};
             desired_length_samp = desired_length_sec*Fs2;
@@ -229,6 +231,10 @@ parfor f = 1:length(sf)
             [pks1, locs1] = findpeaks(autocor2);
             [maxVal, maxLoc] = max(pks1);
             minpeakdist = lagfinalInstHR(locs1(maxLoc));
+            if isempty(minpeakdist)
+                display(["Cannot find distance between peaks"])
+                continue
+            end
             npeaks = round(length(y2)/minpeakdist);
             heartrate = (60*Fs2) / lagfinalInstHR(locs1(maxLoc));
 
@@ -237,8 +243,8 @@ parfor f = 1:length(sf)
             smax2 = movmedian(smax,500);
             [pks2, locs2] = findpeaks(smax,"NPeaks",npeaks, "MinPeakDistance",minpeakdist);
             
-            if abs(length(pks2)-npeaks) > 1
-                print(['Mismatch between expected heart rate and true heart cycles: ' abs(length(pks2)-npeaks)])
+            if sum(smax2==0) > Fs2*.25 %ensure the cardiac clip is suitable for data generation
+                display(['Too much blank space in cardiac data' ])
                 continue %there is a mismatch between the expected heart cycles and true heart cycles.
             end
             %perform peak detection to determine where heartbeats occur
@@ -415,6 +421,7 @@ parfor f = 1:length(sf)
             audiowrite(savefilename_combined,combined_audio,Fs2)
 
             end
+
         end
     end
 
