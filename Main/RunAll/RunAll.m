@@ -2,7 +2,7 @@
 clear; close all; clc; 
 
 %% User-defined parameters
-numfiles = 1000; %number of synthetic Doppler files per class to be made
+numfiles = 1; %number of synthetic Doppler files per class to be made
 desired_length_sec = 10; %seconds per audio file
 Fs2 = 8000; %resampled frequency for output data (44100 and 8000 are good choices)
 
@@ -13,7 +13,7 @@ bubble_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\SimulatedB
 
 [bubble_seg_resample,avg_bbl_lngth] = load_bbl_data(bubble_dir,Fs2); %load bubble data once
 %% where to save augmented data
-savefolder_all = 'E:\Projects\Doppler Project\Data\Simulated data\Synthetic Doppler Data\SyntheticDU_examples\';
+savefolder_all = 'E:\Projects\Doppler Project\SyntheticDU_examples\';
 
 
 %% Precordial

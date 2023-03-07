@@ -46,6 +46,7 @@ savefilebasename = 'syntheticDopplerAudioCombined_'; %what the file will be name
 
 
 try
+    mkdir(savefolder_all); 
     mkdir(savefolder_cardiac);
     mkdir(savefolder_bubbles);
     mkdir(savefolder_combined);
@@ -234,6 +235,11 @@ parfor f = 1:length(sf)
             %perform peak detection to determine where heartbeats occur
             [pks2, locs2] = findpeaks(y2,"NPeaks",npeaks, "MinPeakDistance",minpeakdist*.9); % detect troughs in the inverted cardiac signal
 
+            if abs(length(pks2)-npeaks) > 1
+                print(['Mismatch between expected heart rate and true heart cycles: ' abs(length(pks2)-npeaks)])
+                continue %there is a mismatch between the expected heart cycles and true heart cycles.
+            end
+            
             window_indexes = [locs2(1:end-1) locs2(2:end)];%since we have detected the troughs of the signal, we will shift all windows by 50% to capture the peaks
             window_shifts = (locs2(2:end)-locs2(1:end-1))/2;
             window_indexes2 =window_indexes+ window_shifts;
