@@ -35,7 +35,7 @@ switch codesystem
         sf{3} = [1 2 1; 1 2 2; 1 2 3; 2 2 1; 2 2 2; 2 2 3];
         sf{4} = [2 3 2; 2 3 3; 2 4 2; 2 4 3; 3 3 2; 3 3 3; 3 4 2; 3 4 3];
         sf{5} = [4 4 4];
-        all_classes = {'1','2','3','4','5'}; 
+        all_classes = {'0','1','2','3','4'}; 
     case 2 % Kisman Masurel code, but only the ones that are possible according to Bennett and Elliot
         sf = {};
         sf{1} = [0 0 0];
@@ -127,9 +127,7 @@ parfor f = 1:length(sf)
             [pks1, locs1] = findpeaks(autocor2);
             [maxVal, maxLoc] = max(pks1);
             minpeakdist = lagfinalInstHR(locs1(maxLoc));
-            if isempty(minpeakdist)
-                continue
-            end
+
             npeaks = round(length(y2)/minpeakdist);
             heartrate = (60*Fs2) / lagfinalInstHR(locs1(maxLoc));
 
@@ -138,10 +136,6 @@ parfor f = 1:length(sf)
             smax2 = movmedian(smax,500);
             [pks2, locs2] = findpeaks(smax,"NPeaks",npeaks, "MinPeakDistance",minpeakdist);
             
-            if abs(length(pks2)-npeaks) > 1
-                print(['Mismatch between expected heart rate and true heart cycles: ' abs(length(pks2)-npeaks)])
-                continue %there is a mismatch between the expected heart cycles and true heart cycles.
-            end
             %perform peak detection to determine where heartbeats occur
 %             [pks2, locs2] = findpeaks(y2,"NPeaks",npeaks, "MinPeakDistance",minpeakdist*.9); % detect troughs in the inverted cardiac signal
 

@@ -2,12 +2,13 @@
 clear; close all; clc; 
 
 %% User-defined parameters
-numfiles = 1; %number of synthetic Doppler files per class to be made
+numfiles = 100; %number of synthetic Doppler files per class to be made
 desired_length_sec = 10; %seconds per audio file
 Fs2 = 8000; %resampled frequency for output data (44100 and 8000 are good choices)
 
+
 %% Specify folders where baseline data is located
-baseline_human_dir_precordial = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\DukeData_processed';
+baseline_human_dir_precordial = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\2021dopplercardiac072921';
 baseline_human_dir_subclavian = "D:\Projects\Doppler Project\Data\Simulated data\Rawdata\O'Dive dataset - only pre-dive"; 
 bubble_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\SimulatedBubbles_Sequoia';
 
@@ -15,18 +16,10 @@ bubble_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\SimulatedB
 %% where to save augmented data
 savefolder_all = 'E:\Projects\Doppler Project\SyntheticDU_examples\';
 
+%%
+audioAll = load_humanDU_audio(baseline_human_dir_precordial,Fs2);
 
 %% Precordial
-audioAll = load_humanDU_audio(baseline_human_dir_precordial,Fs2);
-%
-% case 1
-savefolder_case1 = ['Spencer_Precordial_FullCardiacCycle\'];
-savefilebasename = 'Spencer_Precordial_FullCardiacCycle_';
-[savefolder_cardiac, savefolder_bubbles, savefolder_combined] = makesavefolder(savefolder_all,savefolder_case1);
-codesystem = 1; % 1 for Spencer and 2 for Kisman-Masurel
-SyntheticCombinationDoppler_FullCardiac_RunMulti_04_18; 
-disp("case 1 done")
-%
 % case 2
 savefolder_case2 = ['Spencer_Precordial_PartialCardiacCycle\'];
 savefilebasename = 'Spencer_Precordial_PartialCardiacCycle_';
@@ -34,39 +27,6 @@ savefilebasename = 'Spencer_Precordial_PartialCardiacCycle_';
 codesystem = 1; % 1 for Spencer and 2 for Kisman-Masurel
 SyntheticCombinationDoppler_PartialCardiac_RunMulti_05_06; 
 disp("case 2 done")
-% case 3
-savefolder_case3 = ['KismanMasurel_Precordial_FullCardiacCycle\'];
-savefilebasename = 'KM_Precordial_FullCardiacCycle_';
-[savefolder_cardiac, savefolder_bubbles, savefolder_combined] = makesavefolder(savefolder_all,savefolder_case3);
-codesystem = 2; % 1 for Spencer and 2 for Kisman-Masurel
-SyntheticCombinationDoppler_FullCardiac_RunMulti_04_18; 
-disp("case 3 done")
-% case 4
-savefolder_case4 = ['KismanMasurel_Precordial_PartialCardiacCycle\'];
-savefilebasename = 'KM_Precordial_PartialCardiacCycle_';
-[savefolder_cardiac, savefolder_bubbles, savefolder_combined] = makesavefolder(savefolder_all,savefolder_case4);
-codesystem = 2; % 1 for Spencer and 2 for Kisman-Masurel
-SyntheticCombinationDoppler_PartialCardiac_RunMulti_05_06; 
-disp("case 4 done")
-
-%% Subclavian
-audioAll = load_humanDU_audio(baseline_human_dir_subclavian,Fs2); 
-%
-% case 5
-savefolder_case5 = ['Spencer_Subclavian_FullCardiacCycle\'];
-savefilebasename = 'Spencer_Subclavian_FullCardiacCycle_';
-[savefolder_cardiac, savefolder_bubbles, savefolder_combined] = makesavefolder(savefolder_all,savefolder_case5);
-codesystem = 1; % 1 for Spencer and 2 for Kisman-Masurel
-SyntheticCombinationDoppler_FullCardiac_RunMulti_04_18; 
-disp("case 5 done")
-% case 6
-savefolder_case6 = ['KismanMasurel_Subclavian_FullCardiacCycle\'];
-savefilebasename = 'KM_Subclavian_FullCardiacCycle_';
-[savefolder_cardiac, savefolder_bubbles, savefolder_combined] = makesavefolder(savefolder_all,savefolder_case6);
-codesystem = 2; % 1 for Spencer and 2 for Kisman-Masurel
-SyntheticCombinationDoppler_FullCardiac_RunMulti_04_18; 
-disp("case 6 done")
-
 
 
 

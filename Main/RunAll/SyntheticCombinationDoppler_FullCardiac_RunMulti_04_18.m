@@ -28,7 +28,7 @@ switch codesystem
         sf{3} = [1 2 1; 1 2 2; 1 2 3; 2 2 1; 2 2 2; 2 2 3];
         sf{4} = [2 3 2; 2 3 3; 2 4 2; 2 4 3; 3 3 2; 3 3 3; 3 4 2; 3 4 3];
         sf{5} = [4 4 4];
-        all_classes = {'1','2','3','4','5'}; 
+        all_classes = {'0','1','2','3','4'}; 
     case 2 % Kisman Masurel code, but only the ones that are possible according to Bennett and Elliot
         sf = {};
         sf{1} = [0 0 0];
@@ -123,21 +123,15 @@ for f = 1:length(sf)
             [maxVal, maxLoc] = max(pks1);
             minpeakdist = lagfinalInstHR(locs1(maxLoc));
 
-            if isempty(minpeakdist)
-                continue
-            end
             npeaks = round(length(y2)/minpeakdist);
             heartrate = (60*Fs2) / lagfinalInstHR(locs1(maxLoc));
 
 
             %perform peak detection to determine where heartbeats occur
             [pks2, locs2] = findpeaks(y2,"NPeaks",npeaks, "MinPeakDistance",minpeakdist*.9); % detect troughs in the inverted cardiac signal
+            smax = movmax(y,200);
+            smax2 = movmedian(smax,500);
 
-            if abs(length(pks2)-npeaks) > 1
-                print(['Mismatch between expected heart rate and true heart cycles: ' abs(length(pks2)-npeaks)])
-                continue %there is a mismatch between the expected heart cycles and true heart cycles.
-            end
-            
             window_indexes = [locs2(1:end-1) locs2(2:end)];%since we have detected the troughs of the signal, we will shift all windows by 50% to capture the peaks
             window_shifts = (locs2(2:end)-locs2(1:end-1))/2;
             window_indexes2 =window_indexes+ window_shifts;

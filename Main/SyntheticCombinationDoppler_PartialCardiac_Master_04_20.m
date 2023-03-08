@@ -39,11 +39,11 @@ codesystem = 1; % 1 for Spencer and 2 for Kisman-Masurel
 
 % Specify folders where baseline data is located
 % baseline_human_dir = "D:\Projects\Doppler Project\Data\Simulated data\Rawdata\O'Dive dataset - only pre-dive"; 
-baseline_human_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\2021dopplercardiac072921';
+baseline_human_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\DukeData_processed';
 bubble_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\SimulatedBubbles_Sequoia';
 
 % where to save augmented data
-savefolder_all = 'E:\Projects\Doppler Project\Data\Simulated data\Synthetic Doppler Data\TestBubbles_KM_noOverlap_10s_2022_04_21\';
+savefolder_all = 'E:\Projects\Doppler Project\Data\Simulated data\TestBubbles_Spencer_noOverlap_10s_2023_03_07\';
 savefolder_cardiac = [savefolder_all 'DopplerSynthCardiac\'];
 savefolder_bubbles = [savefolder_all 'DopplerSynthBubbles\'];
 savefolder_combined = [savefolder_all 'DopplerSynthCombined\'];
@@ -53,6 +53,7 @@ savefilebasename = 'syntheticDopplerAudioCombined_';
 
 
 try
+    mkdir(savefolder_all);
     mkdir(savefolder_cardiac);
     mkdir(savefolder_bubbles);
     mkdir(savefolder_combined);
@@ -67,7 +68,7 @@ switch codesystem
         sf{3} = [1 2 1; 1 2 2; 1 2 3; 2 2 1; 2 2 2; 2 2 3];
         sf{4} = [2 3 2; 2 3 3; 2 4 2; 2 4 3; 3 3 2; 3 3 3; 3 4 2; 3 4 3];
         sf{5} = [4 4 4];
-        all_classes = {'1','2','3','4','5'}; 
+        all_classes = {'0','1','2','3','4'}; 
     case 2 % Kisman Masurel code, but only the ones that are possible according to Bennett and Elliot
         sf = {};
         sf{1} = [0 0 0];
@@ -237,10 +238,6 @@ parfor f = 1:length(sf)
             smax2 = movmedian(smax,500);
             [pks2, locs2] = findpeaks(smax,"NPeaks",npeaks, "MinPeakDistance",minpeakdist);
             
-            if abs(length(pks2)-npeaks) > 1
-                print(['Mismatch between expected heart rate and true heart cycles: ' abs(length(pks2)-npeaks)])
-                continue %there is a mismatch between the expected heart cycles and true heart cycles.
-            end
             %perform peak detection to determine where heartbeats occur
 %             [pks2, locs2] = findpeaks(y2,"NPeaks",npeaks, "MinPeakDistance",minpeakdist*.9); % detect troughs in the inverted cardiac signal
 
@@ -415,6 +412,7 @@ parfor f = 1:length(sf)
             audiowrite(savefilename_combined,combined_audio,Fs2)
 
             end
+
         end
     end
 
