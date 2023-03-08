@@ -39,7 +39,7 @@ codesystem = 1; % 1 for Spencer and 2 for Kisman-Masurel
 
 % Specify folders where baseline data is located
 % baseline_human_dir = "D:\Projects\Doppler Project\Data\Simulated data\Rawdata\O'Dive dataset - only pre-dive"; 
-baseline_human_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\2021dopplercardiac072921';
+baseline_human_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\DukeData_processed';
 bubble_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\SimulatedBubbles_Sequoia';
 
 % where to save augmented data
@@ -230,10 +230,6 @@ parfor f = 1:length(sf)
             [pks1, locs1] = findpeaks(autocor2);
             [maxVal, maxLoc] = max(pks1);
             minpeakdist = lagfinalInstHR(locs1(maxLoc));
-            if isempty(minpeakdist)
-                display(["Cannot find distance between peaks"])
-                continue
-            end
             npeaks = round(length(y2)/minpeakdist);
             heartrate = (60*Fs2) / lagfinalInstHR(locs1(maxLoc));
 
@@ -242,10 +238,6 @@ parfor f = 1:length(sf)
             smax2 = movmedian(smax,500);
             [pks2, locs2] = findpeaks(smax,"NPeaks",npeaks, "MinPeakDistance",minpeakdist);
             
-            if sum(smax2==0) > Fs2*.25 %ensure the cardiac clip is suitable for data generation
-                display(['Too much blank space in cardiac data' ])
-                continue %there is a mismatch between the expected heart cycles and true heart cycles.
-            end
             %perform peak detection to determine where heartbeats occur
 %             [pks2, locs2] = findpeaks(y2,"NPeaks",npeaks, "MinPeakDistance",minpeakdist*.9); % detect troughs in the inverted cardiac signal
 

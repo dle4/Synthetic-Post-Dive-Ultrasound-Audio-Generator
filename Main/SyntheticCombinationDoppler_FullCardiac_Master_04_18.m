@@ -25,18 +25,18 @@ clear; close all; clc;
 %% User-defined parameters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-numfiles = 1; %number of synthetic Doppler files per class to be made
+numfiles = 1000; %number of synthetic Doppler files per class to be made
 desired_length_sec = 10; %seconds per audio file
 Fs2 = 8000; %resampled frequency for output data (44100 and 8000 are good choices)
-codesystem = 2; % 1 for Spencer and 2 for Kisman-Masurel
+codesystem = 1; % 1 for Spencer and 2 for Kisman-Masurel
 
 % Specify folders where baseline data is located
 % baseline_human_dir = "D:\Projects\Doppler Project\Data\Simulated data\Rawdata\O'Dive dataset - only pre-dive"; 
-baseline_human_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\2021dopplercardiac072921';
+baseline_human_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\DukeData_processed';
 bubble_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\SimulatedBubbles_Sequoia';
 
 % where to save augmented data
-savefolder_all = 'E:\Projects\Doppler Project\Data\Simulated data\Synthetic Doppler Data\TestBubbles_Spencer_10s_2022_04_18\';
+savefolder_all = 'E:\Projects\Doppler Project\TestBubbles_Spencer_fullcardiac_10s_2023_03_07\';
 savefolder_cardiac = [savefolder_all 'DopplerSynthCardiac\'];
 savefolder_bubbles = [savefolder_all 'DopplerSynthBubbles\'];
 savefolder_combined = [savefolder_all 'DopplerSynthCombined\'];
@@ -237,10 +237,6 @@ parfor f = 1:length(sf)
             %perform peak detection to determine where heartbeats occur
             [pks2, locs2] = findpeaks(y2,"NPeaks",npeaks, "MinPeakDistance",minpeakdist*.9); % detect troughs in the inverted cardiac signal
 
-            if sum(smax2==0) > Fs2*.25 %ensure the cardiac clip is suitable for data generation
-                display(['Too much blank space in cardiac data' ])
-                continue %there is a mismatch between the expected heart cycles and true heart cycles.
-            end
             
             window_indexes = [locs2(1:end-1) locs2(2:end)];%since we have detected the troughs of the signal, we will shift all windows by 50% to capture the peaks
             window_shifts = (locs2(2:end)-locs2(1:end-1))/2;

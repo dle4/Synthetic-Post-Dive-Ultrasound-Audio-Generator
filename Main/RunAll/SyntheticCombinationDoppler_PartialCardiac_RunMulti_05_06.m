@@ -127,9 +127,7 @@ parfor f = 1:length(sf)
             [pks1, locs1] = findpeaks(autocor2);
             [maxVal, maxLoc] = max(pks1);
             minpeakdist = lagfinalInstHR(locs1(maxLoc));
-            if isempty(minpeakdist)
-                continue
-            end
+
             npeaks = round(length(y2)/minpeakdist);
             heartrate = (60*Fs2) / lagfinalInstHR(locs1(maxLoc));
 
@@ -138,10 +136,6 @@ parfor f = 1:length(sf)
             smax2 = movmedian(smax,500);
             [pks2, locs2] = findpeaks(smax,"NPeaks",npeaks, "MinPeakDistance",minpeakdist);
             
-            if sum(smax2==0) > Fs2*.25 %ensure the cardiac clip is suitable for data generation
-                display(['Too much blank space in cardiac data' ])
-                continue %there is a mismatch between the expected heart cycles and true heart cycles.
-            end
             %perform peak detection to determine where heartbeats occur
 %             [pks2, locs2] = findpeaks(y2,"NPeaks",npeaks, "MinPeakDistance",minpeakdist*.9); % detect troughs in the inverted cardiac signal
 
