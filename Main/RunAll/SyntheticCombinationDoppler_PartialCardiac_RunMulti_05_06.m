@@ -35,7 +35,7 @@ switch codesystem
         sf{3} = [1 2 1; 1 2 2; 1 2 3; 2 2 1; 2 2 2; 2 2 3];
         sf{4} = [2 3 2; 2 3 3; 2 4 2; 2 4 3; 3 3 2; 3 3 3; 3 4 2; 3 4 3];
         sf{5} = [4 4 4];
-        all_classes = {'1','2','3','4','5'}; 
+        all_classes = {'0','1','2','3','4'}; 
     case 2 % Kisman Masurel code, but only the ones that are possible according to Bennett and Elliot
         sf = {};
         sf{1} = [0 0 0];
