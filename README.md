@@ -3,7 +3,7 @@
 News
 ------------
 2022/05/06: Repository created.
-2022/05/~: Paper submitted??
+2023/04/27: Paper accepted (https://doi.org/10.1371/journal.pone.0284922)
 
 
 Requirements
@@ -12,13 +12,13 @@ MATLAB version 2020b or newer (needs audio data augmentation toolbox)
 
 Overview
 ------------
-This repository contains the code described in Le et al. 2022, An open-source framework for synthetic post-dive Doppler ultrasound audio generation. A subset of this data was used to pretrain a ReSeNet for Spencer grade classifications leading to improved real-world test data evaluation. Doppler ultrasound (DU) is recorded after divers surface to measure the amount of bubble (venous gas emboli or VGE) generation from decompression. These recordings are acquired of the subclavian vein or precordium (precordial). Baseline data used in this work can be obtained at doi:10.5061/dryad.xgxd254kp
+This repository contains the code described in Le et al. 2022, An open-source framework for synthetic post-dive Doppler ultrasound audio generation (https://doi.org/10.1371/journal.pone.0284922). A subset of this data was used to pretrain a ReSeNet for Spencer grade classifications leading to improved real-world test data evaluation. Doppler ultrasound (DU) is recorded after divers surface to measure the amount of bubble (venous gas emboli or VGE) generation from decompression. These recordings are acquired of the subclavian vein or precordium (precordial). Baseline data used in this work can be obtained at doi:10.5061/dryad.xgxd254kp
 
 Large amounts of real-world data is difficult to acquire and do not provide ground truth data for what is VGE or cardiac signal. The algorithm presented here generates synthetic post-dive DU data using real-world clean baselines for precordial/subclavian vein recordings injected with isolated VGE audio signals recorded experimentally. A rule-based system is implemented for the injection of VGE into these data, following the Kisman-Masurel grading scale (Table 1,2). The KM scale can be converted into the Spencer scale (Table 3) which is also used by researchers using table 4. 
 
 The code allows a user to generate any number of audio files using either Spencer or KM grading scales. Furthermore, the user can designate certain parameters such as length of audio file, sampling frequency. A method to place VGE only in quiet regions of a cardiac cycle is provided to create data with clearer separation between VGE and human signals. Finally, all code is modifiable such as the definition of KM scale. 
 
-
+Accompanying data can be found at: https://doi.org/10.5061/dryad.xgxd254kp
 
 Usage
 ------------
@@ -48,7 +48,7 @@ For any utilization of the code content of this repository, the following paper 
 
 References
 ------------
-Arian Azarang et al. 2022, Deep learning for doppler classification...
+Arian Azarang et al. 2022, Deep Learning-Based Venous Gas Emboli Grade Classification in Doppler Ultrasound Audio
 
 
 Tables:
