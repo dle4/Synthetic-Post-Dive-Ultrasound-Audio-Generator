@@ -31,9 +31,9 @@ Fs2 = 8000; %resampled frequency for output data (44100 and 8000 are good choice
 codesystem = 1; % 1 for Spencer and 2 for Kisman-Masurel
 
 % Specify folders where baseline data is located
-% baseline_human_dir = "D:\Projects\Doppler Project\Data\Simulated data\Rawdata\O'Dive dataset - only pre-dive"; 
-baseline_human_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\DukeData_processed';
-bubble_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\SimulatedBubbles_Sequoia';
+% baseline_human_dir = "E:\Projects\Synthetic Doppler Project\SyntheticDU_dataset_FINAL\1_BaselineData\SubclavianData"; 
+baseline_human_dir = 'E:\Projects\Synthetic Doppler Project\SyntheticDU_dataset_FINAL\1_BaselineData\PrecordialData';
+bubble_dir = 'E:\Projects\Synthetic Doppler Project\SyntheticDU_dataset_FINAL\1_BaselineData\SimulatedBubblesBaseline';
 
 % where to save augmented data
 savefolder_all = 'E:\Projects\Doppler Project\TestBubbles_Spencer_fullcardiac_10s_2023_03_07\';

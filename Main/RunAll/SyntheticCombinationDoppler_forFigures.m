@@ -18,10 +18,9 @@ desired_length_sec = 10; %seconds per audio file
 Fs2 = 8000; %resampled frequency for output data (44100 and 8000 are good choices)
 
 %% Specify folders where baseline data is located
-% baseline_human_dir = "D:\Projects\Doppler Project\Data\Simulated data\Rawdata\O'Dive dataset - only pre-dive"; 
-baseline_human_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\2021dopplercardiac072921';
-
-bubble_dir = 'D:\Projects\Doppler Project\Data\Simulated data\Rawdata\SimulatedBubbles_Sequoia';
+% baseline_human_dir = "E:\Projects\Synthetic Doppler Project\SyntheticDU_dataset_FINAL\1_BaselineData\SubclavianData"; 
+baseline_human_dir = 'E:\Projects\Synthetic Doppler Project\SyntheticDU_dataset_FINAL\1_BaselineData\PrecordialData';
+bubble_dir = 'E:\Projects\Synthetic Doppler Project\SyntheticDU_dataset_FINAL\1_BaselineData\SimulatedBubblesBaseline';
 %% where to save augmented data
 savefolder_all = 'E:\Projects\Doppler Project\Data\Simulated data\Synthetic Doppler Data\TestBubbles_Run_10s_2022_03_25\';
 savefolder_cardiac = [savefolder_all 'DopplerSynthCardiac\'];
